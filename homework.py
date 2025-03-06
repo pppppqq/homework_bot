@@ -148,7 +148,8 @@ def main():
             else:
                 logger.debug('Статус домашней работы не изменился.')
 
-            timestamp = int(time.time())
+            current_date = response.get('current_date')
+            timestamp = current_date if current_date else int(time.time())
         except Exception as error:
             message = f'Сбой в работе программы: {error}'
             logger.error(message)
